@@ -1,0 +1,11 @@
+def menu_principal():
+    print("1. Ajouter produit")
+    print("2. Afficher produits")
+    print("3. Rechercher produit")
+    print("4. Enregistrer vente")
+    print("5. Afficher ventes")
+    print("6. Ventes par client")
+    print("7. Générer rapport de ventes")
+    print("8. Charger données")
+    print("9. Quitter")
+    return input("Choisissez une option: ")
