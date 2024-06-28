@@ -1,0 +1,14 @@
+[
+    {
+        "Designation": "Bora Boom",
+        "Numero": 1,
+        "Prix": 500.0,
+        "Quantite": 12
+    },
+    {
+        "Designation": "Yes Energie",
+        "Numero": 2,
+        "Prix": 500.0,
+        "Quantite": 10
+    }
+]
