@@ -1,0 +1,44 @@
+[
+    {
+        "Id": 1,
+        "Nom": "stylo",
+        "Prix unitaire": "200",
+        "Quantite": "500"
+    },
+    {
+        "Id": 2,
+        "Nom": "cahier",
+        "Prix unitaire": "250",
+        "Quantite": "800"
+    },
+    {
+        "Id": 3,
+        "Nom": "stylo",
+        "Prix unitaire": "200",
+        "Quantite": "500"
+    },
+    {
+        "Id": 4,
+        "Nom": "stylo",
+        "Prix unitaire": "56",
+        "Quantite": "65"
+    },
+    {
+        "Id": 5,
+        "Nom": "stylo",
+        "Prix unitaire": "5",
+        "Quantite": "4"
+    },
+    {
+        "Id": 6,
+        "Nom": "stylo",
+        "Prix unitaire": "4",
+        "Quantite": "5"
+    },
+    {
+        "Id": 7,
+        "Nom": "stylo",
+        "Prix unitaire": "4",
+        "Quantite": "6"
+    }
+]
