@@ -16,13 +16,11 @@ def main():
     while True:
         choix = menu_principal()
         if choix == '1':
-            #interface_ajout_produit()
-            # print(ajoutArticle())
-            visualisation(articles)
-            #print("interface_ajout_produit")
+            print(ajoutArticle())
         elif choix == '2':
+            print(validationNomArticle('stylo'))
            # interface_affichage_produits()
-           print("interface_ajout_produit")
+            print("interface_ajout_produit")
         elif choix == '3':
             #interface_recherche_produit()
             print("interface_ajout_produit")
