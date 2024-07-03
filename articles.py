@@ -4,11 +4,11 @@ import os
 articles = []
 nomArt = ""
 prixArt = ""
-numArt = 1
+# numArt = 1
 qteArt = ""
 
 nom_fichier = "ARTICLES.json"
-noms_articles_existants=[]
+noms_articles_existants = []
 
 if os.path.exists(nom_fichier):
     with open(nom_fichier, 'r') as fichier:
@@ -16,6 +16,8 @@ if os.path.exists(nom_fichier):
             articles = json.load(fichier)
         except json.JSONDecodeError:
             articles = []
+
+
 # else:
 #     with open(nom_fichier, 'w') as fichier:
 #         articles = fichier
@@ -76,13 +78,33 @@ def ajoutArticle():
             numArt = articles[-1]['Id'] + 1
         except:
             numArt = 1
-        articles.append({'Id': numArt, 'Nom': nomArt, 'Prix unitaire': prixArt, 'Quantite': qteArt})
+        articles.append({'Id': numArt, 'Nom': nomArt, 'Prix unitaire': float(prixArt), 'Quantite': int(qteArt)})
         with open(nom_fichier, 'w') as fichier:
             json.dump(articles, fichier, indent=4)
         return "\nArticle Ajouté avec succès\n"
     else:
         return "\nErreur un article du meme nom existe déjà !\n"
-def visualisation():
-    for i in articles:
-        noms_articles_existants = [noms['Nom'].lower() for noms in articles]
-    print(noms_articles_existants)
+
+
+def visualisation_produits():
+    if len(articles) == 0:
+        return "\nAucun article enregistsré jusque là !\n"
+    else:
+        return articles
+
+def rechercher_article(nom_article):
+    for i in range(len(articles)):
+        if nom_article.lower() == articles[i]['Nom'].lower():
+            return i
+    return f"\nL'article {nom_article} n'a pas été trouvé !\n"
+
+
+def supprimer_article(nom_article):
+    if str(rechercher_article(nom_article)).isdigit():
+        articles.pop(rechercher_article(nom_article))
+        with open(nom_fichier, 'w') as fichier:
+            json.dump(articles, fichier, indent=4)
+        print("\nArticle supprimé avec succès\n")
+        return articles
+    else:
+        return rechercher_article(nom_article)

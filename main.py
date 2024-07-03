@@ -1,4 +1,6 @@
 from articles import *
+
+
 def menu_principal():
     print("1. Ajouter produit")
     print("2. Afficher produits")
@@ -11,38 +13,48 @@ def menu_principal():
     print("9. Quitter")
     return input("Choisissez une option: ")
 
+
 def main():
-    #charger_donnees()
     while True:
         choix = menu_principal()
         if choix == '1':
+            print("\nAJOUT DES NOUVEAUX ARTICLES")
+            print("=============================\n")
             print(ajoutArticle())
+            input("Cliquez sur Entree pour continuer")
         elif choix == '2':
-            print(validationNomArticle('stylo'))
-           # interface_affichage_produits()
-            print("interface_ajout_produit")
+            print("\nPRODUITS EN STOCK")
+            print("=================\n")
+            for article in visualisation_produits():
+                print(article)
+            input("Cliquez sur Entree pour continuer")
         elif choix == '3':
-            #interface_recherche_produit()
-            print("interface_ajout_produit")
+            print("\nSUPPRESSION D'ARTICLES")
+            print("========================\n")
+            nom_article = input("""Saisissez le nom de l'article à supprimer
+==> """)
+            print(supprimer_article(nom_article))
+            input("Cliquez sur Entree pour continuer")
         elif choix == '4':
-            #interface_enregistrement_vente()
+            # interface_enregistrement_vente()
             print("interface_ajout_produit")
         elif choix == '5':
-            #interface_affichage_ventes()
+            # interface_affichage_ventes()
             print("interface_ajout_produit")
         elif choix == '6':
-            #interface_ventes_par_client()
+            # interface_ventes_par_client()
             print("interface_ajout_produit")
         elif choix == '7':
-            #generer_rapport_ventes()
+            # generer_rapport_ventes()
             print("interface_ajout_produit")
         elif choix == '8':
-            #charger_donnees()
+            # charger_donnees()
             print("interface_ajout_produit")
         elif choix == '9':
             break
         else:
             print("Choix invalide, veuillez réessayer.")
+
 
 if __name__ == "__main__":
     main()
