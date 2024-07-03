@@ -10,7 +10,8 @@ def menu_principal():
     print("6. Ventes par client")
     print("7. Générer rapport de ventes")
     print("8. Charger données")
-    print("9. Quitter")
+    print("9. Supprimer produit")
+    print("10. Quitter")
     return input("Choisissez une option: ")
 
 
@@ -29,11 +30,11 @@ def main():
                 print(article)
             input("Cliquez sur Entree pour continuer")
         elif choix == '3':
-            print("\nSUPPRESSION D'ARTICLES")
-            print("========================\n")
+            print("\nRECHERCHER UN PRODUIT")
+            print("=======================\n")
             nom_article = input("""Saisissez le nom de l'article à supprimer
 ==> """)
-            print(supprimer_article(nom_article))
+            print(rechercher_article(nom_article)[0])
             input("Cliquez sur Entree pour continuer")
         elif choix == '4':
             # interface_enregistrement_vente()
@@ -51,6 +52,13 @@ def main():
             # charger_donnees()
             print("interface_ajout_produit")
         elif choix == '9':
+            print("\nSUPPRESSION D'ARTICLES")
+            print("========================\n")
+            nom_article = input("""Saisissez le nom de l'article à supprimer
+==> """)
+            print(supprimer_article(nom_article))
+            input("Cliquez sur Entree pour continuer")
+        elif choix == '10':
             break
         else:
             print("Choix invalide, veuillez réessayer.")

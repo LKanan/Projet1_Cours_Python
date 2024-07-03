@@ -95,13 +95,13 @@ def visualisation_produits():
 def rechercher_article(nom_article):
     for i in range(len(articles)):
         if nom_article.lower() == articles[i]['Nom'].lower():
-            return i
+            return (i, articles[i])
     return f"\nL'article {nom_article} n'a pas été trouvé !\n"
 
 
 def supprimer_article(nom_article):
-    if str(rechercher_article(nom_article)).isdigit():
-        articles.pop(rechercher_article(nom_article))
+    if str(rechercher_article(nom_article)[0]).isdigit():
+        articles.pop(rechercher_article(nom_article)[0])
         with open(nom_fichier, 'w') as fichier:
             json.dump(articles, fichier, indent=4)
         print("\nArticle supprimé avec succès\n")

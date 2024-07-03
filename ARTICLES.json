@@ -1,8 +1,8 @@
 [
     {
-        "Id": 3,
-        "Nom": "stylo",
-        "Prix unitaire": 500.0,
-        "Quantite": 200
+        "Id": 2,
+        "Nom": "cahier",
+        "Prix unitaire": 200.0,
+        "Quantite": 300
     }
 ]
