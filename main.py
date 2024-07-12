@@ -34,8 +34,7 @@ def main():
         elif choix == '3':
             print("\nRECHERCHER UN PRODUIT")
             print("=======================\n")
-            nom_article = input("""Saisissez le nom de l'article à supprimer
-==> """)
+            rechercher_produits()
             # print(rechercher_article(nom_article)[0])
             # input("Cliquez sur Entree pour continuer")
         elif choix == '4':

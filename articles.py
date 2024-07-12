@@ -167,3 +167,14 @@ def afficher_produits():
     articles = donnee['articles']
 
     print(articles)
+
+# Fonction de recherche des produits
+def rechercher_produits():
+    donnee = chargement_donnee()
+    articles = donnee['articles']
+
+    nomArticle = int(input("Veiller entrer l'id de l'articles :"))
+
+    for article in articles:
+        if article['Id'] == nomArticle :
+            print(article)
