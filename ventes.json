@@ -1,0 +1,10 @@
+[
+    {
+        "Id-Vente": 1,
+        "Nom-Client": "Glodie Lukose",
+        "Nom": "Redbull",
+        "Prix Unitaire": 5000,
+        "Quantite": 2,
+        "Prix D'achat": 10000
+    }
+]
