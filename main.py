@@ -45,6 +45,7 @@ def main():
         elif choix == '5':
             # interface_affichage_ventes()
             print("interface_ajout_produit")
+            afficher_ventes()
         elif choix == '6':
             # interface_ventes_par_client()
             print("interface_ajout_produit")

@@ -43,6 +43,18 @@ def enregistrer_vente():
     with open(nom_fichier_ventes, 'a') as fichier:
         json.dump(article_vendu, fichier, indent=4)
 
+# fonctionnalite pour afficher toute les ventes
+def afficher_ventes():
+    if os.path.exists(nom_fichier_ventes):
+        with open(nom_fichier_ventes, 'r') as fichier:
+            try:
+                articlesVendus = json.load(fichier)
+            except json.JSONDecodeError:
+                articlesVendus = []
+    
+    print(articlesVendus)
+
+
 # fonctionnalite pour afficher les ventes d'un client
 def vente_par_client():
     if os.path.exists(nom_fichier_ventes):
