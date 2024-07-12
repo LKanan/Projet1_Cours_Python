@@ -22,7 +22,7 @@
 ## Étape 7 : Rapport de ventes
 - [ ] Définissez une fonction generer_rapport_ventes() pour générer un rapport des ventes sur une période donnée (jour, mois, année).
 
-# Fonctions premium
+# Fonctions premium l
 ## 2. Gestion des ventes et des commandes :
 - [ ] Ajout de notes aux ventes
 - [ ] Filtrage des ventes par date
