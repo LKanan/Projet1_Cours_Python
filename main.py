@@ -22,12 +22,12 @@ def main():
             print("\nAJOUT DES NOUVEAUX ARTICLES")
             print("=============================\n")
             # print(ajoutArticle())
-            creer_fichier()
+            ajoutArticle()
             input("Cliquez sur Entree pour continuer")
         elif choix == '2':
             print("\nPRODUITS EN STOCK")
             print("=================\n")
-            afficher_produit()
+            afficher_produits()
             # for article in visualisation_produits():
             #     print(article)
             # input("Cliquez sur Entree pour continuer")
