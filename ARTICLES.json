@@ -4,5 +4,11 @@
         "Nom": "cahier",
         "Prix unitaire": 200.0,
         "Quantite": 300
+    },
+    {
+        "Id": 3,
+        "Nom": "Bora",
+        "Prix unitaire": 500.0,
+        "Quantite": 14
     }
 ]

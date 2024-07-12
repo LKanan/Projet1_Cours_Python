@@ -5,7 +5,7 @@
         "Nom": "cahier",
         "Prix Unitaire": 200.0,
         "Quantite": 300,
-        "Prix D'achat": 600.0
+        "Prix D'achat": 1200.0
     },
     {
         "Id-Vente": 1,
@@ -13,14 +13,6 @@
         "Nom": "cahier",
         "Prix Unitaire": 200.0,
         "Quantite": 300,
-        "Prix D'achat": 1000.0
-    },
-    {
-        "Id-Vente": 1,
-        "Nom-Client": "Caldie",
-        "Nom": "cahier",
-        "Prix Unitaire": 200.0,
-        "Quantite": 300,
-        "Prix D'achat": 1400.0
+        "Prix D'achat": 400.0
     }
 ]

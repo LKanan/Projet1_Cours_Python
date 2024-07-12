@@ -1,7 +1,6 @@
 import json
 import os
 
-articles = []
 nomArt = ""
 prixArt = ""
 # numArt = 1
@@ -13,21 +12,23 @@ nom_fichier_ventes = 'ventes.json'
 article_vendus = []
 noms_articles_existants = []
 
+# fonction de chargement de donnée
+def chargement_donnee():
+    if os.path.exists(nom_fichier):
+        with open(nom_fichier, 'r') as fichier:
+            try:
+                articles = json.load(fichier)
+            except json.JSONDecodeError:
+                articles = []
 
-if os.path.exists(nom_fichier):
-    with open(nom_fichier, 'r') as fichier:
-        try:
-            articles = json.load(fichier)
-        except json.JSONDecodeError:
-            articles = []
-
-if os.path.exists(nom_fichier_ventes):
+    if os.path.exists(nom_fichier_ventes):
         with open(nom_fichier_ventes, 'r') as fichier:
             try:
-                article_vendus = json.load(fichier)
+                ventes = json.load(fichier)
             except json.JSONDecodeError:
-                article_vendus = []
-
+                ventes = []
+    
+    return { 'articles' :articles, 'ventes' :ventes }
 
 # fonction de creation du fichier contenant les ventes
 def creer_fichier_vente():
@@ -37,22 +38,16 @@ def creer_fichier_vente():
 
 # fonction d'enregistrement de vente
 def enregistrer_vente():
+    donnee = chargement_donnee()
     
     if not(os.path.exists(nom_fichier_ventes)):
         creer_fichier_vente()
-    
-    if os.path.exists(nom_fichier):
-        with open(nom_fichier, 'r') as fichier:
-            try:
-                articles = json.load(fichier)
-            except json.JSONDecodeError:
-                articles = []
     
     nomClient = input('veiller saisir le nom du client : ')
     idProduit = int(input("Veiller entrer l'id du produit : "))
     quantite = int(input('Entrer la quantité : '))
 
-    for article in articles:
+    for article in donnee['articles']:
         if article['Id'] == idProduit :
             article_vendus.append({'Id-Vente': 1,'Nom-Client': nomClient,'Nom': article['Nom'], 'Prix Unitaire': article['Prix unitaire'], 'Quantite': article['Quantite'], "Prix D'achat" : article['Prix unitaire'] * quantite})
 
@@ -61,28 +56,16 @@ def enregistrer_vente():
 
 # fonctionnalite pour afficher toute les ventes
 def afficher_ventes():
-    if os.path.exists(nom_fichier_ventes):
-        with open(nom_fichier_ventes, 'r') as fichier:
-            try:
-                articlesVendus = json.load(fichier)
-            except json.JSONDecodeError:
-                articlesVendus = []
-    
-    print(articlesVendus)
+    donnee = chargement_donnee()
+    print(donnee['ventes'])
 
 
 # fonctionnalite pour afficher les ventes d'un client
 def vente_par_client():
-    if os.path.exists(nom_fichier_ventes):
-        with open(nom_fichier_ventes, 'r') as fichier:
-            try:
-                articlesVendus = json.load(fichier)
-            except json.JSONDecodeError:
-                articlesVendus = []
-    
+    donnee = chargement_donnee()
     nomClient = input('veiller entrer le nom du client : ')
 
-    for article in articlesVendus:
+    for article in donnee['ventes']:
         if article['Nom-Client'] == nomClient :
             print(article)
 
@@ -126,12 +109,16 @@ def validationQteArticle(qteArticle):
         qteArticle = qteArt
 
 
+# fonction pour ajouter des produits
 def ajoutArticle():
     global nomArt
     global prixArt
     global qteArt
     global articles
     global numArt
+
+    donnee = chargement_donnee()
+    articles = donnee['articles']    
 
     nomArt = input("Saisir le nom de l'article : ")
     validationNomArticle(nomArt)
@@ -174,3 +161,9 @@ def supprimer_article(nom_article):
         return articles
     else:
         return rechercher_article(nom_article)
+    
+def afficher_produits():
+    donnee = chargement_donnee()
+    articles = donnee['articles']
+
+    print(articles)
