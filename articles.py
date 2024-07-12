@@ -10,7 +10,7 @@ qteArt = ""
 
 nom_fichier = "ARTICLES.json"
 nom_fichier_ventes = 'ventes.json'
-article_vendu = []
+article_vendus = []
 noms_articles_existants = []
 
 
@@ -21,6 +21,13 @@ if os.path.exists(nom_fichier):
         except json.JSONDecodeError:
             articles = []
 
+if os.path.exists(nom_fichier_ventes):
+        with open(nom_fichier_ventes, 'r') as fichier:
+            try:
+                article_vendus = json.load(fichier)
+            except json.JSONDecodeError:
+                article_vendus = []
+
 
 # fonction de creation du fichier contenant les ventes
 def creer_fichier_vente():
@@ -30,18 +37,27 @@ def creer_fichier_vente():
 
 # fonction d'enregistrement de vente
 def enregistrer_vente():
+    
     if not(os.path.exists(nom_fichier_ventes)):
         creer_fichier_vente()
     
+    if os.path.exists(nom_fichier):
+        with open(nom_fichier, 'r') as fichier:
+            try:
+                articles = json.load(fichier)
+            except json.JSONDecodeError:
+                articles = []
+    
     nomClient = input('veiller saisir le nom du client : ')
-    nomProduit = input('veiller entrer le nom du produit : ')
-    prixProduit = int(input('veiller entrer le prix du produit : '))
+    idProduit = int(input("Veiller entrer l'id du produit : "))
     quantite = int(input('Entrer la quantité : '))
 
-    article_vendu.append({'Id-Vente': 1,'Nom-Client': nomClient,'Nom': nomProduit, 'Prix Unitaire': prixProduit, 'Quantite': quantite, "Prix D'achat" : prixProduit * quantite})
+    for article in articles:
+        if article['Id'] == idProduit :
+            article_vendus.append({'Id-Vente': 1,'Nom-Client': nomClient,'Nom': article['Nom'], 'Prix Unitaire': article['Prix unitaire'], 'Quantite': article['Quantite'], "Prix D'achat" : article['Prix unitaire'] * quantite})
 
-    with open(nom_fichier_ventes, 'a') as fichier:
-        json.dump(article_vendu, fichier, indent=4)
+    with open(nom_fichier_ventes, 'w') as fichier:
+        json.dump(article_vendus, fichier, indent=4)
 
 # fonctionnalite pour afficher toute les ventes
 def afficher_ventes():

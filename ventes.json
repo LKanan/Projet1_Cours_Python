@@ -1,10 +1,26 @@
 [
     {
         "Id-Vente": 1,
-        "Nom-Client": "Glodie Lukose",
-        "Nom": "Redbull",
-        "Prix Unitaire": 5000,
-        "Quantite": 2,
-        "Prix D'achat": 10000
+        "Nom-Client": "Glodie",
+        "Nom": "cahier",
+        "Prix Unitaire": 200.0,
+        "Quantite": 300,
+        "Prix D'achat": 600.0
+    },
+    {
+        "Id-Vente": 1,
+        "Nom-Client": "Lucien",
+        "Nom": "cahier",
+        "Prix Unitaire": 200.0,
+        "Quantite": 300,
+        "Prix D'achat": 1000.0
+    },
+    {
+        "Id-Vente": 1,
+        "Nom-Client": "Caldie",
+        "Nom": "cahier",
+        "Prix Unitaire": 200.0,
+        "Quantite": 300,
+        "Prix D'achat": 1400.0
     }
 ]
