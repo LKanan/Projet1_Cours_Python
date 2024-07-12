@@ -7,8 +7,12 @@ prixArt = ""
 # numArt = 1
 qteArt = ""
 
+
 nom_fichier = "ARTICLES.json"
+nom_fichier_ventes = 'ventes.json'
+article_vendu = []
 noms_articles_existants = []
+
 
 if os.path.exists(nom_fichier):
     with open(nom_fichier, 'r') as fichier:
@@ -18,9 +22,43 @@ if os.path.exists(nom_fichier):
             articles = []
 
 
-# else:
-#     with open(nom_fichier, 'w') as fichier:
-#         articles = fichier
+# fonction de creation du fichier contenant les ventes
+def creer_fichier_vente():
+    with open(nom_fichier_ventes, 'w') as fichier :
+        pass
+
+
+# fonction d'enregistrement de vente
+def enregistrer_vente():
+    if not(os.path.exists(nom_fichier_ventes)):
+        creer_fichier_vente()
+    
+    nomClient = input('veiller saisir le nom du client : ')
+    nomProduit = input('veiller entrer le nom du produit : ')
+    prixProduit = int(input('veiller entrer le prix du produit : '))
+    quantite = int(input('Entrer la quantité : '))
+
+    article_vendu.append({'Id-Vente': 1,'Nom-Client': nomClient,'Nom': nomProduit, 'Prix Unitaire': prixProduit, 'Quantite': quantite, "Prix D'achat" : prixProduit * quantite})
+
+    with open(nom_fichier_ventes, 'a') as fichier:
+        json.dump(article_vendu, fichier, indent=4)
+
+# fonctionnalite pour afficher les ventes d'un client
+def vente_par_client():
+    if os.path.exists(nom_fichier_ventes):
+        with open(nom_fichier_ventes, 'r') as fichier:
+            try:
+                articlesVendus = json.load(fichier)
+            except json.JSONDecodeError:
+                articlesVendus = []
+    
+    nomClient = input('veiller entrer le nom du client : ')
+
+    for article in articlesVendus:
+        if article['Nom-Client'] == nomClient :
+            print(article)
+
+
 
 
 def validationNomArticle(nomArticle):

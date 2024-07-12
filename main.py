@@ -21,30 +21,34 @@ def main():
         if choix == '1':
             print("\nAJOUT DES NOUVEAUX ARTICLES")
             print("=============================\n")
-            print(ajoutArticle())
+            # print(ajoutArticle())
+            creer_fichier()
             input("Cliquez sur Entree pour continuer")
         elif choix == '2':
             print("\nPRODUITS EN STOCK")
             print("=================\n")
-            for article in visualisation_produits():
-                print(article)
-            input("Cliquez sur Entree pour continuer")
+            afficher_produit()
+            # for article in visualisation_produits():
+            #     print(article)
+            # input("Cliquez sur Entree pour continuer")
         elif choix == '3':
             print("\nRECHERCHER UN PRODUIT")
             print("=======================\n")
             nom_article = input("""Saisissez le nom de l'article à supprimer
 ==> """)
-            print(rechercher_article(nom_article)[0])
-            input("Cliquez sur Entree pour continuer")
+            # print(rechercher_article(nom_article)[0])
+            # input("Cliquez sur Entree pour continuer")
         elif choix == '4':
             # interface_enregistrement_vente()
-            print("interface_ajout_produit")
+            print("interface_enregistrement_vente")
+            enregistrer_vente()
         elif choix == '5':
             # interface_affichage_ventes()
             print("interface_ajout_produit")
         elif choix == '6':
             # interface_ventes_par_client()
             print("interface_ajout_produit")
+            vente_par_client()
         elif choix == '7':
             # generer_rapport_ventes()
             print("interface_ajout_produit")
@@ -56,7 +60,7 @@ def main():
             print("========================\n")
             nom_article = input("""Saisissez le nom de l'article à supprimer
 ==> """)
-            print(supprimer_article(nom_article))
+            # print(supprimer_article(nom_article))
             input("Cliquez sur Entree pour continuer")
         elif choix == '10':
             break
