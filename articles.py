@@ -4,7 +4,6 @@ import os
 articles = []
 nomArt = ""
 prixArt = ""
-# numArt = 1
 qteArt = ""
 
 nom_fichier = "ARTICLES.json"
@@ -18,11 +17,6 @@ if os.path.exists(nom_fichier):
             articles = []
 
 
-# else:
-#     with open(nom_fichier, 'w') as fichier:
-#         articles = fichier
-
-
 def validationNomArticle(nomArticle):
     global nomArt
     global articles
@@ -31,7 +25,7 @@ def validationNomArticle(nomArticle):
         nomArt = input("Saisir le nom de l'article : ")
         nomArticle = nomArt
 
-    noms_articles_existants = [noms['Nom'].lower() for noms in articles]
+    noms_articles_existants = [noms['Article'].lower() for noms in articles]
     if nomArticle.lower() in noms_articles_existants:
         return True
     return False
@@ -93,6 +87,11 @@ def visualisation_produits():
         return articles
 
 def rechercher_article(nom_article):
+    """
+    Cette fonction permet de rechercher un article dans la liste des articles en transormant les noms en minuscule pour eviter les erreurs de casse
+    :param nom_article: le nom de l'article à rechercher
+    Elle retourne l'index de l'article et l'article lui-même si l'article est trouvé, sinon elle retourne un message d'erreur
+    """
     for i in range(len(articles)):
         if nom_article.lower() == articles[i]['Nom'].lower():
             return (i, articles[i])
@@ -100,6 +99,11 @@ def rechercher_article(nom_article):
 
 
 def supprimer_article(nom_article):
+    """
+    Cette fonction permet de supprimer un article de la liste des articles
+    :param nom_article:  le nom de l'article à supprimer
+    :return:
+    """
     if str(rechercher_article(nom_article)[0]).isdigit():
         articles.pop(rechercher_article(nom_article)[0])
         with open(nom_fichier, 'w') as fichier:

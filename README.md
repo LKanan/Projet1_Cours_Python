@@ -10,10 +10,10 @@
 - [x] Définissez une fonction afficher_produits() pour afficher tous les produits.
 - [x] Définissez une fonction rechercher_produit() pour rechercher un produit par nom.
 ## Étape 4 : Gestion des ventes
-- [ ] Créez une liste vide pour stocker les ventes.
-- [ ] Définissez une fonction enregistrer_vente() pour enregistrer une vente (client, produit, quantité, date).
-- [ ] Définissez une fonction afficher_ventes() pour afficher toutes les ventes.
-- [ ] Définissez une fonction ventes_par_client() pour afficher les ventes d'un client spécifique.
+- [x] Créez une liste vide pour stocker les ventes.
+- [x] Définissez une fonction enregistrer_vente() pour enregistrer une vente (client, produit, quantité, date).
+- [x] Définissez une fonction afficher_ventes() pour afficher toutes les ventes.
+- [x] Définissez une fonction ventes_par_client() pour afficher les ventes d'un client spécifique.
 ## Étape 5 : chargement des données
 - [ ] Définissez une fonction charger_donnees() pour charger les produits, clients et ventes depuis un fichier.
 ## Étape 6 : Gestion de l'inventaire
