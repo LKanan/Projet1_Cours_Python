@@ -1,20 +1,14 @@
 import json
 import os
 import time
+import chargement_donnees
 
-ventes = []
 nomClient = ""
 nomArticle=""
 qteArticles=0
 
 nom_fichier = "VENTES.json"
-
-if os.path.exists(nom_fichier):
-    with open(nom_fichier, 'r') as fichier:
-        try:
-            ventes = json.load(fichier)
-        except json.JSONDecodeError:
-            ventes = []
+ventes = chargement_donnees.charger_donnees(nom_fichier)
 
 def validationNomClient(nomCl):
     global nomClient
@@ -82,8 +76,10 @@ def ventes_par_client():
     for vente in ventes:
         if nomClient == vente['Nom Client']:
             print(vente)
+            break
+    print(f"\nIl n'y a pas de client au nom de {nomClient} !\n")
 
-ventes_par_client()
+# ventes_par_client()
 # afficher_ventes()
 # enregistrer_vente()
 # print(validationNomClient("GlOdie"))

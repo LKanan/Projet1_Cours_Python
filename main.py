@@ -1,4 +1,5 @@
 from articles import *
+from ventes import *
 
 
 def menu_principal():
@@ -37,14 +38,20 @@ def main():
             print(rechercher_article(nom_article)[0])
             input("Cliquez sur Entree pour continuer")
         elif choix == '4':
-            # interface_enregistrement_vente()
-            print("interface_ajout_produit")
+            print("\nENREGISTRER VENTES")
+            print("=======================\n")
+            enregistrer_vente()
+            input("Cliquez sur Entree pour continuer")
         elif choix == '5':
-            # interface_affichage_ventes()
-            print("interface_ajout_produit")
+            print("\nAFFICHER VENTES")
+            print("=======================\n")
+            afficher_ventes()
+            input("Cliquez sur Entree pour continuer")
         elif choix == '6':
-            # interface_ventes_par_client()
-            print("interface_ajout_produit")
+            print("\nVENTES PAR CLIENT")
+            print("=======================\n")
+            ventes_par_client()
+            input("Cliquez sur Entree pour continuer")
         elif choix == '7':
             # generer_rapport_ventes()
             print("interface_ajout_produit")

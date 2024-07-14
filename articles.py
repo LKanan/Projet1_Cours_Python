@@ -1,20 +1,14 @@
 import json
 import os
+import chargement_donnees
 
-articles = []
 nomArt = ""
 prixArt = ""
 qteArt = ""
 
 nom_fichier = "ARTICLES.json"
+articles = chargement_donnees.charger_donnees(nom_fichier)
 noms_articles_existants = []
-
-if os.path.exists(nom_fichier):
-    with open(nom_fichier, 'r') as fichier:
-        try:
-            articles = json.load(fichier)
-        except json.JSONDecodeError:
-            articles = []
 
 
 def validationNomArticle(nomArticle):

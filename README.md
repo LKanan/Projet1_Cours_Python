@@ -15,7 +15,7 @@
 - [x] Définissez une fonction afficher_ventes() pour afficher toutes les ventes.
 - [x] Définissez une fonction ventes_par_client() pour afficher les ventes d'un client spécifique.
 ## Étape 5 : chargement des données
-- [ ] Définissez une fonction charger_donnees() pour charger les produits, clients et ventes depuis un fichier.
+- [x] Définissez une fonction charger_donnees() pour charger les produits, clients et ventes depuis un fichier.
 ## Étape 6 : Gestion de l'inventaire
 - [ ] Définissez une fonction mettre_a_jour_stock() pour mettre à jour la quantité de produits après une vente.
 - [ ] Définissez une fonction verifier_stock() pour vérifier si la quantité de produit est suffisante avant d'enregistrer une vente.
